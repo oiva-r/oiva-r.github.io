@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teppo</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" onclick="showSection('about')" class="noto-emoji-font a-icon">🪪</a>
+            <a href="#" onclick="showSection('projects')" class="noto-emoji-font a-icon">🔩</a>
+            <a href="#" onclick="showWritingsList()" class="noto-emoji-font a-icon">📄</a>
+            <a href="#" onclick="showSection('bookshelf')" class="noto-emoji-font a-icon">📚</a>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <p class="zero-m">Welcome to my portfolio! I'm a web developer passionate about creating amazing web experiences. jdlöfldff  jfldfjdlff fdjöief fdjfldfjfdls wieruer dfjldfjsfdsdf dfoijsfd dfljdfdf dfljdfldf dfljlfjkdlfd djfdlfsfalkj djfldf.</p>
+        </section>
+
+        <section id="projects">
+            <div class="row">
+                <div class="column ">
+
+                    <div class="container">
+                        <a href="https://github.com/oiva-johannes/infret" target="_blank"><img src="UutisetNyt.png" class="image">
+                        <div class="middle">
+                          <div class="text">UutisetNyt.fi</div>
+                        </div></a>
+                    </div>
+
+                    <div class="container">
+                        <a href="https://github.com/oiva-johannes/validation-rating-system" target="_blank"><img src="rating-system.png" class="image">
+                        <div class="middle">
+                          <div class="text">Validation/Rating System</div>
+                        </div></a>
+                    </div>
+
+                </div>
+                <div class="column">
+
+                    <div class="container">
+                        <a href="https://github.com/oiva-johannes/validation-rating-system" target="_blank"><img src="clusters.png" class="image">
+                        <div class="middle">
+                          <div class="text">K-Means Clustering on News Articles</div>
+                        </div></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="writings">
+            <ul id="post-list" class="ul-main">
+                <li class="li-main"><a href="#" onclick="showWriting('hello-world')">What It means to innovate: Internet voting and estonia</a></li>
+                <li class="li-main"><a href="#" onclick="showWriting('second-post')">Second Post</a></li>
+                <!-- Add more blog post links as needed -->
+            </ul>
+            <div id="writing-content"></div>
+            
+            <!-- Hidden blog post content -->
+            <div id="blog-posts" style="display: none;">
+                <div id="hello-world">
+                    <article>
+                        <h2>Hello World</h2>
+                        <p>This is my first blog post...</p>
+                    </article>
+                </div>
+                <div id="second-post">
+                    <article>
+                        <h2>Second Post</h2>
+                        <p>This is my second blog post...</p>
+                    </article>
+                </div>
+                <!-- Add more blog posts here -->
+            </div>
+        </section>
+        
+        <section id="bookshelf">
+            When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+        </section>
+
+    </main>
+
+    <script src="scrips.js"></script>
+</body>
+</html>
