@@ -4,7 +4,7 @@ html, body {
   
 html {
     text-align: center;
-    background-color: #262626;
+    background-color: #1f1f1f;
     color: #DFDFDF;
     font-size: 20px;
 }
@@ -17,7 +17,7 @@ body {
     font-style: normal;
     padding-bottom: 60px;
     max-width: 1010px;
-    min-width: 940px;
+    min-width: 1000px;
 }
   
 .noto-emoji-font {
@@ -57,6 +57,7 @@ section {
 }
 
 h1, h2, h3{
+    margin: 0px;
     font-weight:normal
 }
 
@@ -68,16 +69,11 @@ h1, h2, h3{
 
 .li-main {
     padding-bottom: 50px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 p {
     line-height: 25px;
-}
-
-.zero-m {
-    margin: 0px;
-    padding: 0px;
 }
 
 img {
@@ -116,7 +112,6 @@ img {
     }
 } 
 
-
 .container {
     position: relative;
     width: 100%;
@@ -154,4 +149,45 @@ img {
     color: white;
     font-size: 22px;
     padding: 16px 32px;
+}
+
+.zero-m-bio {
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 15px;
+    padding-left: 450px;
+    text-align: left;
+}
+
+.bio {
+    float: left;
+}
+
+
+.five-star {
+    color: rgb(69, 159, 25);
+    padding: 3px;
+}
+
+.four-star {
+    color: rgb(157, 196, 77);
+    padding: 3px;
+}
+
+.three-star {
+    color: rgb(255, 255, 153);
+}
+
+.two-star {
+    color: rgb(255, 102, 102);
+}
+
+.one-star {
+    color: rgb(153, 0, 0);
+}
+
+.book-header {
+    padding-top: 50px;
+    padding-bottom: 10px;
 }
