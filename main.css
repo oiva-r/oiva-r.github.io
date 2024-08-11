@@ -68,8 +68,8 @@ h1, h2, h3{
 }
 
 .li-main {
-    padding-bottom: 50px;
-    font-size: 1.2rem;
+    padding-bottom: 40px;
+    font-size: 1.1rem;
 }
 
 p {
@@ -166,7 +166,7 @@ img {
 
 
 .five-star {
-    color: rgb(69, 159, 25);
+    color: rgb(66, 168, 16);
     padding: 3px;
 }
 
@@ -184,7 +184,7 @@ img {
 }
 
 .one-star {
-    color: rgb(153, 0, 0);
+    color: rgb(204, 0, 0);
 }
 
 .book-header {
