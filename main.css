@@ -38,9 +38,20 @@ nav {
     padding-top: 50px;
     padding-bottom: 70px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
     gap: 200px;
 }   
+
+@media screen and (max-width: 1036px) {
+    nav {
+        padding-top: 50px;
+        padding-bottom: 70px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        column-gap: 0px;
+        row-gap: 10px;  /* Adjust this value as needed */    
+    }
+}
 
 a {
     color: #fff;
@@ -101,7 +112,7 @@ img {
     width: 100%;
 }
   
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1036px) {
     .column {
       flex: 100%;
       max-width: 100%;
@@ -164,6 +175,15 @@ img {
     text-align: left;
     margin-bottom: 0px;
     margin-top: 25px;
+
+    box-sizing: border-box;
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    hyphens: auto;
+    word-wrap: break-word;
 }
 
 .image-container {
@@ -171,7 +191,7 @@ img {
     order: 1;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1036px) {
     .bio-container {
       flex-direction: column;
     }
@@ -200,14 +220,17 @@ img {
 
 .three-star {
     color: rgb(255, 255, 153);
+    padding: 3px;
 }
 
 .two-star {
     color: rgb(255, 102, 102);
+    padding: 3px;
 }
 
 .one-star {
     color: rgb(204, 0, 0);
+    padding: 3px;
 }
 
 .book-header {
