@@ -15,9 +15,10 @@ body {
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    padding-bottom: 60px;
     max-width: 1010px;
-    min-width: 1000px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 100px;
 }
   
 .noto-emoji-font {
@@ -78,6 +79,8 @@ p {
 
 img {
     border-radius: 10px;
+    max-width: 100%;
+    height: auto;
   }
 
 .row {
@@ -98,19 +101,12 @@ img {
     width: 100%;
 }
   
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 768px) {
     .column {
       flex: 100%;
       max-width: 100%;
     }
 }
-  
-@media screen and (max-width: 1010px) {
-    .column {
-      flex: 100%;
-      max-width: 100%;
-    }
-} 
 
 .container {
     position: relative;
@@ -146,23 +142,50 @@ img {
 }
   
 .text {
-    color: white;
+    color: #DFDFDF;
     font-size: 22px;
     padding: 16px 32px;
 }
 
-.zero-m-bio {
-    margin: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-top: 15px;
-    padding-left: 450px;
-    text-align: left;
+.bio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: flex-start;
 }
 
-.bio {
-    float: left;
+.text-container {
+    flex: 1;
+    min-width: 300px;
+    order: 2;
 }
+
+.bio-p {
+    text-align: left;
+    margin-bottom: 0px;
+    margin-top: 25px;
+}
+
+.image-container {
+    flex: 0 0 auto;
+    order: 1;
+}
+
+@media (max-width: 768px) {
+    .bio-container {
+      flex-direction: column;
+    }
+    
+    .image-container {
+      order: 2;
+      width: 100%;
+    }
+    
+    .text-container {
+      order: 1;
+      width: 100%;
+    }
+  }
 
 
 .five-star {
