@@ -18,9 +18,12 @@ body {
     max-width: 1010px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+section {
     padding-bottom: 100px;
 }
-  
+
 .noto-emoji-font {
     font-family: "Noto Emoji", sans-serif;
     font-optical-sizing: auto;
