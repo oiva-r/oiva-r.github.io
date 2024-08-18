@@ -46,17 +46,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listener for navigation
     document.addEventListener('click', function(e) {
         if (e.target.tagName === 'A') {
-            e.preventDefault();
             const href = e.target.getAttribute('href');
-            if (href.startsWith('#writings/')) {
-                const postId = href.split('/')[1];
-                showWriting(postId);
-            } else {
-                const sectionId = href.slice(1);
-                if (sectionId === 'writings') {
-                    showWritingsList();
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                if (href.startsWith('#writings/')) {
+                    const postId = href.split('/')[1];
+                    showWriting(postId);
                 } else {
-                    showSection(sectionId);
+                    const sectionId = href.slice(1);
+                    if (sectionId === 'writings') {
+                        showWritingsList();
+                    } else {
+                        showSection(sectionId);
+                    }
                 }
             }
         }
