@@ -9,6 +9,7 @@ function showSection(sectionId) {
     const selectedSection = document.getElementById(sectionId);
     if (selectedSection) {
         selectedSection.style.display = 'block';
+        updateURL(sectionId);
     }
 }
 
@@ -26,6 +27,7 @@ function showWriting(postId) {
 
     document.getElementById('post-list').style.display = 'none';
     writingContent.style.display = 'block';
+    history.pushState({ section: 'writings', post: postId }, '', `#writings/${postId}`);
 }
 
 function showWritingsList() {
@@ -33,9 +35,76 @@ function showWritingsList() {
     document.getElementById('writing-content').innerHTML = '';
     document.getElementById('post-list').style.display = 'block';
     document.getElementById('writing-content').style.display = 'none';
+    history.replaceState({ section: 'writings' }, '', '#writings');
 }
 
-// Show the 'about' section by default when the page loads
+function updateURL(sectionId) {
+    history.pushState({ section: sectionId }, '', `#${sectionId}`);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    showSection('about');
+    // Add event listener for navigation
+    document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+            e.preventDefault();
+            const href = e.target.getAttribute('href');
+            if (href.startsWith('#writings/')) {
+                const postId = href.split('/')[1];
+                showWriting(postId);
+            } else {
+                const sectionId = href.slice(1);
+                if (sectionId === 'writings') {
+                    showWritingsList();
+                } else {
+                    showSection(sectionId);
+                }
+            }
+        }
+    });
+
+    // Handle initial page load
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+        if (hash.startsWith('writings/')) {
+            const postId = hash.split('/')[1];
+            showWriting(postId);
+        } else if (hash === 'writings') {
+            showWritingsList();
+        } else {
+            showSection(hash);
+        }
+    } else {
+        showSection('about');
+    }
+
+    // Add popstate event listener
+    window.addEventListener('popstate', handlePopState);
 });
+
+function handlePopState(event) {
+    const state = event.state;
+    if (state) {
+        if (state.section === 'writings' && state.post) {
+            showWriting(state.post);
+        } else if (state.section === 'writings') {
+            showWritingsList();
+        } else {
+            showSection(state.section);
+        }
+    } else {
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            if (hash.startsWith('writings/')) {
+                const postId = hash.split('/')[1];
+                showWriting(postId);
+            } else if (hash === 'writings') {
+                showWritingsList();
+            } else {
+                showSection(hash);
+            }
+        } else {
+            showSection('about');
+        }
+    }
+}
+
