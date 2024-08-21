@@ -245,3 +245,13 @@ img {
 .post-p {
     text-align: left;
 }
+
+.post-img {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+blockquote {
+    line-height: 25px;
+    text-align: left;
+}
