@@ -88,7 +88,7 @@ h3 {
 
 .li-main {
     padding-bottom: 40px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 p {
@@ -185,6 +185,10 @@ img {
     box-sizing: border-box;
 }
 
+.bio-img {
+    margin-top: 53px;
+}
+
 .image-container {
     flex: 0 0 auto;
     order: 1;
@@ -239,7 +243,7 @@ img {
 
 .post-timestamp {
     padding-right: 12px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .post-p {
