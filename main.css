@@ -208,6 +208,10 @@ img {
       order: 1;
       width: 100%;
     }
+
+    .bio-img {
+        margin-top: 0px;
+    }
   }
 
 
