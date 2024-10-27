@@ -25,7 +25,7 @@ section {
 }
 
 .noto-emoji-font {
-    font-family: "Noto Emoji", sans-serif;
+    font-family: "Noto Emoji", system-ui, -apple-system, "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
