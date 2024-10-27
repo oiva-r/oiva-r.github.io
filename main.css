@@ -25,12 +25,11 @@ section {
 }
 
 .noto-emoji-font {
-    font-family: "Noto Emoji", "Apple Color Emoji";
+    font-family: "Noto Emoji", "Apple Color Emoji", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
 }
-
 
 .a-icon{
     color: #ffffff;
