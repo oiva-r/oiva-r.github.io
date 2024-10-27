@@ -32,7 +32,7 @@ section {
 }
 
 .a-icon{
-    color: #fff;
+    color: #ffffff !important;
     text-decoration: none;
     font-size: 3rem;
 }
