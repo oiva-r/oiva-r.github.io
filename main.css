@@ -46,7 +46,7 @@ section {
 }
 
 .noto-emoji-font-4 {
-    font-family: "Noto Emoji", "Apple Color Emoji", sans-serif;
+    font-family: "Noto Emoji", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
