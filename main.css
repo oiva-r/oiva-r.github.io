@@ -24,29 +24,8 @@ section {
     padding-bottom: 50px;
 }
 
-.noto-emoji-font-1 {
-    font-family: "Noto Emoji", system-ui, -apple-system, "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.noto-emoji-font-2 {
-    font-family: "Noto Emoji", -apple-system, "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.noto-emoji-font-3 {
-    font-family: "Noto Emoji", "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.noto-emoji-font-4 {
-    font-family: "Noto Emoji", "Segoe UI Emoji", sans-serif;
+.noto-emoji-font {
+    font-family: "Noto Emoji", "Apple Color Emoji";
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
