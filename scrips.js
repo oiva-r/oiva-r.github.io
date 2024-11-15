@@ -9,11 +9,10 @@ function showSection(sectionId) {
     const selectedSection = document.getElementById(sectionId);
     if (selectedSection) {
         selectedSection.style.display = 'block';
-        updateURL(sectionId);
     }
 }
 
-function showWriting(postId) {
+function showWriting(postId, pushState = true) {
     showSection('writings');
 
     const writingContent = document.getElementById('writing-content');
@@ -27,19 +26,28 @@ function showWriting(postId) {
 
     document.getElementById('post-list').style.display = 'none';
     writingContent.style.display = 'block';
-    history.pushState({ section: 'writings', post: postId }, '', `#writings/${postId}`);
+    
+    if (pushState) {
+        history.pushState({ section: 'writings', post: postId }, '', `#writings/${postId}`);
+    }
 }
 
-function showWritingsList() {
+function showWritingsList(pushState = true) {
     showSection('writings');
     document.getElementById('writing-content').innerHTML = '';
     document.getElementById('post-list').style.display = 'block';
     document.getElementById('writing-content').style.display = 'none';
-    history.replaceState({ section: 'writings' }, '', '#writings');
+    
+    if (pushState) {
+        history.pushState({ section: 'writings' }, '', '#writings');
+    }
 }
 
-function updateURL(sectionId) {
-    history.pushState({ section: sectionId }, '', `#${sectionId}`);
+function navigateToSection(sectionId, pushState = true) {
+    showSection(sectionId);
+    if (pushState) {
+        history.pushState({ section: sectionId }, '', `#${sectionId}`);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (sectionId === 'writings') {
                         showWritingsList();
                     } else {
-                        showSection(sectionId);
+                        navigateToSection(sectionId);
                     }
                 }
             }
@@ -69,44 +77,42 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hash) {
         if (hash.startsWith('writings/')) {
             const postId = hash.split('/')[1];
-            showWriting(postId);
+            showWriting(postId, false);
         } else if (hash === 'writings') {
-            showWritingsList();
+            showWritingsList(false);
         } else {
-            showSection(hash);
+            navigateToSection(hash, false);
         }
     } else {
-        showSection('about');
+        navigateToSection('about', true);
     }
 
     // Add popstate event listener
-    window.addEventListener('popstate', handlePopState);
-});
-
-function handlePopState(event) {
-    const state = event.state;
-    if (state) {
-        if (state.section === 'writings' && state.post) {
-            showWriting(state.post);
-        } else if (state.section === 'writings') {
-            showWritingsList();
-        } else {
-            showSection(state.section);
-        }
-    } else {
-        const hash = window.location.hash.slice(1);
-        if (hash) {
-            if (hash.startsWith('writings/')) {
-                const postId = hash.split('/')[1];
-                showWriting(postId);
-            } else if (hash === 'writings') {
-                showWritingsList();
+    window.addEventListener('popstate', function(event) {
+        const state = event.state;
+        if (state) {
+            if (state.section === 'writings' && state.post) {
+                showWriting(state.post, false);
+            } else if (state.section === 'writings') {
+                showWritingsList(false);
             } else {
-                showSection(hash);
+                navigateToSection(state.section, false);
             }
         } else {
-            showSection('about');
+            // Handle the case when there's no state (initial page load)
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                if (hash.startsWith('writings/')) {
+                    const postId = hash.split('/')[1];
+                    showWriting(postId, false);
+                } else if (hash === 'writings') {
+                    showWritingsList(false);
+                } else {
+                    navigateToSection(hash, false);
+                }
+            } else {
+                navigateToSection('about', false);
+            }
         }
-    }
-}
-
+    });
+});
