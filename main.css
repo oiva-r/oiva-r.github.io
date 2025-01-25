@@ -6,7 +6,7 @@ html {
     text-align: center;
     background-color: #1f1f1f;
     color: #DFDFDF;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 body {
@@ -34,18 +34,19 @@ section {
 .a-icon{
     color: #ffffff;
     text-decoration: none;
-    font-size: 3rem;
 }
 
 nav {
-    padding-top: 50px;
-    padding-bottom: 70px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
-    gap: 200px;
+  padding: 50px 0 100px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0px, auto)); /* Better min width */
+  gap: 180px; /* Reduce gap */
+  justify-content: center; /* Center items */
+  align-items: center;
+  font-size: 20px;
 }   
 
-@media screen and (max-width: 1036px) {
+@media screen and (max-width: 1055px) {
     nav {
         padding-top: 50px;
         padding-bottom: 70px;
@@ -58,7 +59,12 @@ nav {
 
 a {
     color: #fff;
+    text-decoration: none;
 }
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
 
 main {
     padding-top: 0;
@@ -71,9 +77,9 @@ section {
     display: none;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4, h5 {
     margin: 0px;
-    font-weight:normal
+    font-weight:300
 }
 
 h3 {
@@ -88,7 +94,7 @@ h3 {
 
 .li-main {
     padding-bottom: 40px;
-    font-size: 1.1rem;
+    font-size: 22px;
 }
 
 p {
@@ -105,6 +111,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
+    justify-content: center;
   }
   
 .column {
@@ -119,7 +126,7 @@ img {
     width: 100%;
 }
   
-@media screen and (max-width: 1036px) {
+@media screen and (max-width: 1055px) {
     .column {
       flex: 100%;
       max-width: 100%;
@@ -170,11 +177,12 @@ img {
     flex-wrap: wrap;
     gap: 28px;
     align-items: flex-start;
+    justify-content: center;
 }
 
 .text-container {
     flex: 1;
-    min-width: 300px;
+    max-width: 480px;
     order: 2;
 }
 
@@ -187,15 +195,36 @@ img {
 }
 
 .bio-img {
-    margin-top: 53px;
+    margin-top: 20px;
 }
 
 .image-container {
     flex: 0 0 auto;
     order: 1;
-}
+    display: flex;          /* Add this */
+    flex-direction: column; /* Stack image + icons vertically */
+    align-items: center;    /* Center horizontally */
+  }
+  
+  /* Social icons container */
+  .social-icons {
+    display: flex;         /* Crucial for gap to work */
+    gap: 30px;            /* Space between icons */
+    margin-top: 53px;     /* Fine-tune vertical position */
+  }
+  
+  /* Social icon hover effects */
+  .social-icons img {
+    transition: transform 0.2s ease;
+    width: 50px;          /* Match your HTML width */
+    height: 50px;         /* Maintain aspect ratio */
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.1);
+  }
 
-@media screen and (max-width: 1036px) {
+@media screen and (max-width: 1055px) {
     .bio-container {
       flex-direction: column;
     }
@@ -211,7 +240,10 @@ img {
     }
 
     .bio-img {
-        margin-top: 0px;
+      margin-top: 20px;
+    }
+    .bio-container {
+        align-items: center;
     }
   }
 
@@ -252,17 +284,37 @@ img {
 }
 
 .post-p {
-    text-align: left;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
+    text-align: justify;      /* Straight edges on both sides */
+    hyphens: auto;            /* Automatic hyphenation */
+    text-justify: inter-word; /* Improves spacing (optional) */
+    max-width: 800px;
+    margin: 20px auto 40px auto; /* Consolidated margins */
+    line-height: 1.5em;         /* Line spacing */
+  }
+
+.post-p-bio {
+    text-align: justify;      /* Straight edges on both sides */
+    hyphens: auto;            /* Automatic hyphenation */
+    text-justify: inter-word; /* Improves spacing (optional) */
+    max-width: 800px;
+    margin: 20px auto 0px auto; /* Consolidated margins */
+    line-height: 1.5em;         /* Line spacing */
+  }
 
 .post-img {
     padding-top: 10px;
     padding-bottom: 30px;
+    max-width: 800px;
 }
 
 blockquote {
     line-height: 25px;
-    text-align: left;
+    text-align: justify;      /* Straight edges on both sides */
+    hyphens: auto;            /* Automatic hyphenation */
+    text-justify: inter-word; /* Improves spacing (optional) */
+    max-width: 600px;
+    margin: 20px auto 40px auto; /* Consolidated margins */
+    line-height: 1.5em;         /* Line spacing */
 }
+
+
