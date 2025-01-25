@@ -87,19 +87,51 @@ h3 {
 }
 
 .ul-main {
-    list-style-type: none;
-    margin: 0px;
+    margin: 0 auto;  /* This centers the list */
     padding: 0px;
+    text-align: left;
+    max-width: 475px;
 }
 
 .li-main {
-    padding-bottom: 40px;
+    padding-bottom: 50px;
     font-size: 22px;
+}
+
+
+.centered-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+.centered-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    position: relative;
+    padding-left: 1.5em;
+  }
+  
+.post-timestamp {
+    flex: 0 0 auto; /* Prevent timestamp from growing/shrinking */
+    min-width: 80px; /* Adjust based on your timestamp width */
+    text-align: right; /* Align timestamps to the right */
+    font-size: 18px;
+    
+}
+  
+.centered-list li a {
+    flex: 1;
+    word-wrap: break-word;
+    text-align: left;
 }
 
 p {
     line-height: 25px;
 }
+
 
 img {
     border-radius: 10px;
@@ -276,11 +308,6 @@ img {
 .book-header {
     padding-top: 50px;
     padding-bottom: 10px;
-}
-
-.post-timestamp {
-    padding-right: 12px;
-    font-size: 18px;
 }
 
 .post-p {
