@@ -13,7 +13,7 @@ function showSection(sectionId) {
 }
 
 function showWriting(postId, pushState = true) {
-    showSection('writings');
+    showSection('blog');
 
     const writingContent = document.getElementById('writing-content');
     const postContent = document.getElementById(postId);
@@ -28,18 +28,18 @@ function showWriting(postId, pushState = true) {
     writingContent.style.display = 'block';
     
     if (pushState) {
-        history.pushState({ section: 'writings', post: postId }, '', `#writings/${postId}`);
+        history.pushState({ section: 'blog', post: postId }, '', `#blog/${postId}`);
     }
 }
 
-function showWritingsList(pushState = true) {
-    showSection('writings');
+function showblogList(pushState = true) {
+    showSection('blog');
     document.getElementById('writing-content').innerHTML = '';
     document.getElementById('post-list').style.display = 'block';
     document.getElementById('writing-content').style.display = 'none';
     
     if (pushState) {
-        history.pushState({ section: 'writings' }, '', '#writings');
+        history.pushState({ section: 'blog' }, '', '#blog');
     }
 }
 
@@ -57,13 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const href = e.target.getAttribute('href');
             if (href.startsWith('#')) {
                 e.preventDefault();
-                if (href.startsWith('#writings/')) {
+                if (href.startsWith('#blog/')) {
                     const postId = href.split('/')[1];
                     showWriting(postId);
                 } else {
                     const sectionId = href.slice(1);
-                    if (sectionId === 'writings') {
-                        showWritingsList();
+                    if (sectionId === 'blog') {
+                        showblogList();
                     } else {
                         navigateToSection(sectionId);
                     }
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle initial page load
     const hash = window.location.hash.slice(1);
     if (hash) {
-        if (hash.startsWith('writings/')) {
+        if (hash.startsWith('blog/')) {
             const postId = hash.split('/')[1];
             showWriting(postId, false);
-        } else if (hash === 'writings') {
-            showWritingsList(false);
+        } else if (hash === 'blog') {
+            showblogList(false);
         } else {
             navigateToSection(hash, false);
         }
@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('popstate', function(event) {
         const state = event.state;
         if (state) {
-            if (state.section === 'writings' && state.post) {
+            if (state.section === 'blog' && state.post) {
                 showWriting(state.post, false);
-            } else if (state.section === 'writings') {
-                showWritingsList(false);
+            } else if (state.section === 'blog') {
+                showblogList(false);
             } else {
                 navigateToSection(state.section, false);
             }
@@ -102,11 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Handle the case when there's no state (initial page load)
             const hash = window.location.hash.slice(1);
             if (hash) {
-                if (hash.startsWith('writings/')) {
+                if (hash.startsWith('blog/')) {
                     const postId = hash.split('/')[1];
                     showWriting(postId, false);
-                } else if (hash === 'writings') {
-                    showWritingsList(false);
+                } else if (hash === 'blog') {
+                    showblogList(false);
                 } else {
                     navigateToSection(hash, false);
                 }

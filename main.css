@@ -104,7 +104,7 @@ h3 {
     list-style-type: none;
     padding-left: 0;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 550px;
   }
   
 .centered-list li {
@@ -122,6 +122,7 @@ h3 {
     font-size: 18px;
     
 }
+
   
 .centered-list li a {
     flex: 1;
@@ -340,7 +341,7 @@ blockquote {
     text-align: justify;      /* Straight edges on both sides */
     hyphens: auto;            /* Automatic hyphenation */
     text-justify: inter-word; /* Improves spacing (optional) */
-    max-width: 600px;
+    max-width: 650px;
     margin: 20px auto 40px auto; /* Consolidated margins */
     line-height: 1.5em;         /* Line spacing */
 }
