@@ -54,6 +54,16 @@ function navigateToSection(sectionId, pushState = true) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Reset scroll position immediately
+    window.scrollTo(0, 0);
+    
+    // Add safety check for mobile browsers
+    setTimeout(() => {
+        if (window.scrollY > 0) {
+            window.scrollTo(0, 0);
+        }
+    }, 100);
+
     // Add event listener for navigation
     document.addEventListener('click', function(e) {
         if (e.target.tagName === 'A') {

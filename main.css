@@ -3,6 +3,7 @@ html, body {
 }
   
 html {
+    scroll-behavior: auto !important;
     text-align: center;
     background-color: #1f1f1f;
     color: #DFDFDF;
@@ -334,6 +335,10 @@ img {
     padding-top: 10px;
     padding-bottom: 30px;
     max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
 }
 
 blockquote {
