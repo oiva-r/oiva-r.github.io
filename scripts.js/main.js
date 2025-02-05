@@ -1,3 +1,6 @@
+// Base path for GitHub Pages
+const basePath = ''
+
 function showSection(sectionId) {
     // Hide all sections
     const sections = document.querySelectorAll('main > section');
@@ -12,15 +15,15 @@ function showSection(sectionId) {
     }
 }
 
-function showWriting(postId, pushState = true) {
+async function showWriting(postId, pushState = true) {
     showSection('blog');
-
     const writingContent = document.getElementById('writing-content');
-    const postContent = document.getElementById(postId);
     
-    if (postContent) {
-        writingContent.innerHTML = postContent.innerHTML;
-    } else {
+    try {
+        const response = await fetch(`${basePath}/posts/${postId}.html`);
+        if (!response.ok) throw new Error('Post not found');
+        writingContent.innerHTML = await response.text();
+    } catch (error) {
         writingContent.innerHTML = '<p>Post not found</p>';
     }
 
@@ -99,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 navigateToSection(state.section, false);
             }
         } else {
-            // Handle the case when there's no state (initial page load)
             const hash = window.location.hash.slice(1);
             if (hash) {
                 if (hash.startsWith('blog/')) {
@@ -116,3 +118,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
