@@ -98,20 +98,21 @@ h3 {
 .li-main {
     padding-bottom: 50px;
     font-size: 22px;
+    padding-left: 0 !important;
 }
 
 
 .centered-list {
     list-style-type: none;
-    padding-left: 0;
     margin: 0 auto;
     max-width: 550px;
+    padding-left: 0 !important;
   }
   
 .centered-list li {
     display: flex;
     align-items: baseline;
-    gap: 1rem;
+    gap: 0.2rem;
     position: relative;
     padding-left: 1.5em;
   }
@@ -121,7 +122,8 @@ h3 {
     min-width: 80px; /* Adjust based on your timestamp width */
     text-align: right; /* Align timestamps to the right */
     font-size: 18px;
-    
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
   
@@ -334,11 +336,23 @@ img {
 .post-img {
     padding-top: 10px;
     padding-bottom: 30px;
-    max-width: 79.3%;
+    max-width: 800px;
     height: auto;
     display: block;
     margin: 0 auto;
     object-fit: contain;
+}
+
+@media screen and (max-width: 800px) {
+    .post-img {
+        padding-top: 10px;
+        padding-bottom: 30px;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
 }
 
 blockquote {
@@ -351,4 +365,21 @@ blockquote {
     line-height: 1.5em;         /* Line spacing */
 }
 
+.upvote {
+    font-size: 24px;
+}
 
+.upvote-link {
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .upvote-link:hover:not(.voted) {
+    opacity: 0.75;
+  }
+  
+  .upvote-link.voted {
+    cursor: default;
+    opacity: 0.5;
+    text-decoration: none !important;
+  }

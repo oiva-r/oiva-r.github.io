@@ -129,3 +129,74 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Generate a unique voter ID (stored in localStorage)
+async function upvote(postId, event) {
+    if (event) event.preventDefault();
+    const btn = document.getElementById(`upvoteBtn-${postId}`); 
+    const user = firebase.auth().currentUser;
+    if (!user) return;
+  
+    // Show loading state
+    btn.style.cursor = 'wait';
+  
+    try {
+      const voterId = user.uid;
+      const postRef = db.collection('posts').doc(postId);
+      const postDoc = await postRef.get();
+  
+      if (!postDoc.exists) {
+        await postRef.set({
+          upvotes: 1,
+          voters: [voterId]
+        });
+        return;
+      }
+  
+      const voters = postDoc.data().voters || [];
+      if (voters.includes(voterId)) {
+        return;
+      }
+  
+      await postRef.update({
+        upvotes: firebase.firestore.FieldValue.increment(1),
+        voters: firebase.firestore.FieldValue.arrayUnion(voterId)
+      });
+    } catch (error) {
+      console.error("Error voting:", error);
+    } finally {
+      // Reset cursor based on vote status
+      btn.style.cursor = btn.classList.contains('voted') ? 'default' : 'pointer';
+    }
+  }
+  
+  function loadUpvotes(postId) {
+    const countElement = document.getElementById(`upvoteCount-${postId}`);
+    const btn = document.getElementById(`upvoteBtn-${postId}`); // Changed to dynamic ID
+  
+    if (!countElement || !btn) {
+      console.error('UI elements not found!');
+      return;
+    }
+  
+    db.collection('posts').doc(postId).onSnapshot((doc) => {
+      const data = doc.data() || {};
+      const upvotes = data.upvotes || 0;
+      const voters = data.voters || [];
+      const user = firebase.auth().currentUser;
+  
+      // Update count display
+      countElement.textContent = upvotes;
+  
+      // Update button state
+      btn.classList.toggle('voted', user && voters.includes(user.uid));
+    });
+  }
+  
+  window.onload = () => {
+    // Initialize all posts
+    ['how-languages-are-taught-in-finland', 'idea-machines', 'deviate-from-the-mean', 'what-it-means-to-innovate'].forEach(postId => { // Add post IDs here
+      const btn = document.getElementById(`upvoteBtn-${postId}`);
+      if (btn) btn.classList.add('upvote-link');
+      loadUpvotes(postId);
+    });
+  };
