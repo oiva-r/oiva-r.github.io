@@ -367,8 +367,6 @@ blockquote {
 
 .upvote {
     font-size: 28px;
-    line-height: 1.2; /* Add this */
-    display: inline-block; /* Add this */
 }
 
 .upvote-num {
@@ -379,9 +377,6 @@ blockquote {
 .upvote-link {
     cursor: pointer;
     transition: opacity 0.2s;
-    vertical-align: middle; /* Add this */
-    position: relative;
-    top: -1px; /* Adjust if needed */
   }
   
   .upvote-link:hover:not(.voted) {
@@ -391,5 +386,4 @@ blockquote {
   .upvote-link.voted {
     opacity: 0.5;
     text-decoration: none;
-    transform: translateY(1px); /* Add this */
   }
