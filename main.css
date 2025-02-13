@@ -366,7 +366,11 @@ blockquote {
 }
 
 .upvote {
-    font-size: 24px;
+    font-size: 30px;
+}
+
+.upvote-num {
+    font-size: 23px;
     font-weight: bold;
 }
 
