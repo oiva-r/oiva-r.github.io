@@ -194,7 +194,7 @@ async function upvote(postId, event) {
   
   window.onload = () => {
     // Initialize all posts
-    ['how-languages-are-taught-in-finland', 'idea-machines', 'deviate-from-the-mean', 'what-it-means-to-innovate'].forEach(postId => { // Add post IDs here
+    ['finnish-software-moat', 'how-languages-are-taught-in-finland', 'idea-machines', 'deviate-from-the-mean', 'what-it-means-to-innovate'].forEach(postId => { // Add post IDs here
       const btn = document.getElementById(`upvoteBtn-${postId}`);
       if (btn) btn.classList.add('upvote-link');
       loadUpvotes(postId);
